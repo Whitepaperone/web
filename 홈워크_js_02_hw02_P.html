@@ -15,6 +15,30 @@
 
     function solution(K, N, M, chargers) {
       // solution 함수 완성
+      let lst=Array(N).fill(0)
+      let place=0
+      let cnt=0
+      let tmp=0
+      for (let i in chargers){
+        lst[i]=1
+      }
+      while (place<N){
+        if (lst[place]===1){
+          place+=K
+          cnt+=1
+          tmp=0
+        }
+        else if(tmp>K){
+          cnt=0
+          return cnt
+        }
+        else{
+          place-=1
+          tmp+=1
+        }
+
+      }
+      return cnt
     }
     
     for (const input of inputs) {
